@@ -1,0 +1,56 @@
+<?php 
+      $obj = new Principal_Controlador();
+      $a_users = $obj->Consult(); 
+  
+      if(isset($_POST['send']))
+    {
+        $result = $obj->getFields(
+            $_POST['id'], $_POST['full_name'],$_POST['email'], $_POST['hear_us']);
+    
+        if ($result) 
+        {
+            echo "ESTUDIANTE INGRESADO";
+            echo "<META http-equiv='refresh' content='2;URL=index.php'>";
+        }
+        else
+        {
+            echo "ESTUDIANTE YA EXISTENTE";   
+            echo "<META http-equiv='refresh' content='2;URL=index.php'>";
+        }
+    }
+  
+  
+  ?>
+  
+  <h3 align="CENTER">DATOS DE LA BD</h3>
+        <table align="CENTER" border="1" width="50%"> 
+            <tr> 
+                <td> 
+                    <b>ID</b>
+                </td> 
+                <td > 
+                    <b>FULL NAME</b>
+                </td> 
+                <td> 
+                    <b>EMAIL</b> 
+                </td>                 
+                <td> 
+                    <b>HEAR US</b> 
+                </td> 
+              
+
+
+            </tr><!-- /THEAD --> 
+
+            <?php foreach ($a_users as $row):?>
+
+            <tr> 
+                <td><?php echo $row['id']; ?></td> 
+                <td><?php echo $row['full_name']; ?></td> 
+                <td><?php echo $row['email']; ?></td> 
+                <td><?php echo $row['hear_us']; ?></td> 
+            </tr><!-- /TROW --> 
+         
+            <?php endforeach ?>     
+   
+        </table><!-- /TABLE --> 
