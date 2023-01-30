@@ -185,6 +185,12 @@
   opacity: 50%;
 }
 
+.logos h1 {
+  border: 0.3px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+
 /**************************/
 /* HOW IT WORKS SECTION */
 /**************************/
